@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "`TAprogram", "`TAprogram\`TAprogram.csproj", "{E5A1A786-3E06-4F65-A884-729F45AB2834}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5A1A786-3E06-4F65-A884-729F45AB2834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5A1A786-3E06-4F65-A884-729F45AB2834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5A1A786-3E06-4F65-A884-729F45AB2834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5A1A786-3E06-4F65-A884-729F45AB2834}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC71DD42-A54F-48FA-9A73-B3BB0C903A5E}
+	EndGlobalSection
+EndGlobal

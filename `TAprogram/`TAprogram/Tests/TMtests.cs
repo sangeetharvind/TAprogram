@@ -56,6 +56,7 @@ namespace _TAprogram.Tests
         [TearDown]
         public void CloseTests()
         {
+            driver.Quit();
 
         }
 

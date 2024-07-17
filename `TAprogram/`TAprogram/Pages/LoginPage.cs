@@ -1,4 +1,5 @@
 ﻿using _TAprogram.Utilities;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
@@ -21,15 +22,19 @@ namespace TAprogram.Pages
         driver.Navigate().GoToUrl("http://horse.industryconnect.io");
         driver.Manage().Window.Maximize();
         Thread.Sleep(2000);
-        
-        //Explicit wait conditions
-        //WebDriverWait wait = new WebDriverWait(driver, TimeSpan(5));
-        //wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("Username")
 
-        //Identify username textbox and enter valid username
-        IWebElement usernameTextbox = driver.FindElement(By.Id("UserName"));
-        usernameTextbox.SendKeys("hari");
+        try
+        {
+            //Identify username textbox and enter valid username
+            IWebElement usernameTextbox = driver.FindElement(By.Id("UserName"));
+            usernameTextbox.SendKeys("hari");
             Thread.Sleep(2000);
+        }
+        
+        catch(Exception ex)
+        {
+                Assert.Fail("Username textbox has not found");
+        }
 
         //wait.WaitToBeVisible(driver, "Id", "Password", 7);
 

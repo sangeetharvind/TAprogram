@@ -1,7 +1,7 @@
 using System;
 using TechTalk.SpecFlow;
 
-namespace _TAprogram
+namespace _TAprogram.StepDefination
 {
     [Binding]
     public class TMfeatureStepDefinitions

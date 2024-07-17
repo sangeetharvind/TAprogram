@@ -24,6 +24,18 @@ namespace TAprogram.Pages
             IWebElement timeAndMaterialTextbox = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
             timeAndMaterialTextbox.Click();
         }
+        public void NavigateToEmployeePage(IWebDriver driver)
+        {
+            //click on administration module
+            IWebElement administrationTextbox = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
+            administrationTextbox.Click();
+
+            wait.WaitToBeClickable(driver, "XPath", "/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a", 10);
+
+            //click on time and material
+            IWebElement EmployeeTextbox = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[2]/a"));
+            EmployeeTextbox.Click();
+        }
 
     }
 }

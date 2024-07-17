@@ -9,6 +9,6 @@ namespace _TAprogram.Utilities
 {
     public class CommonWebDriver
     {
-        public static IWebDriver driver;
+        public IWebDriver driver;
     }
 }

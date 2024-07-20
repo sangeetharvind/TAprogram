@@ -75,14 +75,14 @@ namespace _TAprogram.SpecFlow
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("create time record with valid data")]
+        [NUnit.Framework.DescriptionAttribute("1 create time record with valid data")]
         [NUnit.Framework.CategoryAttribute("regression")]
-        public void CreateTimeRecordWithValidData()
+        public void _1CreateTimeRecordWithValidData()
         {
             string[] tagsOfScenario = new string[] {
                     "regression"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("create time record with valid data", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 create time record with valid data", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 8
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -110,16 +110,17 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("edit existing time record with valid data")]
-        [NUnit.Framework.TestCaseAttribute("Industry Connect", null)]
-        [NUnit.Framework.TestCaseAttribute("TA Job Ready", null)]
-        [NUnit.Framework.TestCaseAttribute("EditedRecord", null)]
-        public void EditExistingTimeRecordWithValidData(string code, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("2 edit existing time record with valid data")]
+        [NUnit.Framework.TestCaseAttribute("Industry Connect", "This is Industry Connect", null)]
+        [NUnit.Framework.TestCaseAttribute("TA Job Ready", "This is TA Job Ready", null)]
+        [NUnit.Framework.TestCaseAttribute("EditedRecord", "This is EditedRecord", null)]
+        public void _2EditExistingTimeRecordWithValidData(string code, string description, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Code", code);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("edit existing time record with valid data", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            argumentsOfScenario.Add("Description", description);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 edit existing time record with valid data", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 14
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -137,10 +138,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("I navigate to Time and Material page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 17
- testRunner.When(string.Format("I update the \'{0}\'on an existing Time record", code), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I update the \'{0}\' and \'{1}\'on an existing Time record", code, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 18
- testRunner.Then(string.Format("the record should have the updated \'{0}\'", code), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("the record should have the updated \'{0}\' and \'{1}\'", code, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

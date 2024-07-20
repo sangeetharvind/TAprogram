@@ -43,7 +43,7 @@ namespace _TAprogram.Tests
         {
             //TM page object edit initialization and definations
             TMPage tmPageEditobj = new TMPage();
-            tmPageEditobj.EditTimeRecord(driver, "");
+            tmPageEditobj.EditTimeRecord(driver, "","");
         }
 
         [Test]

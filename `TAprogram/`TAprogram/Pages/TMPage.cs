@@ -86,10 +86,9 @@ namespace TAprogram.Pages
         public string GetPrice(IWebDriver driver)
         {
             IWebElement newPrice = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[4]"));
-            //Console.WriteLine("######" + newPrice.Text);
             return newPrice.Text;
         }
-        public void EditTimeRecord(IWebDriver driver, string code)
+        public void EditTimeRecord(IWebDriver driver, string code, string description)
         {
             Thread.Sleep(4000);
 
@@ -108,7 +107,10 @@ namespace TAprogram.Pages
             editCodeTextbox.Clear();
             editCodeTextbox.SendKeys(code);
 
-           
+            IWebElement editDescriptionTextbox = driver.FindElement(By.Id("Description"));
+            editDescriptionTextbox.Clear();
+            editDescriptionTextbox.SendKeys(description);
+
             IWebElement editSaveButton = driver.FindElement(By.Id("SaveButton"));
             Thread.Sleep(1000);
             editSaveButton.Click();
@@ -127,6 +129,11 @@ namespace TAprogram.Pages
         {
             IWebElement editcode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
             return editcode.Text;
+        }
+        public string GetEditDescription(IWebDriver driver)
+        {
+            IWebElement editDescription = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[3]"));
+            return editDescription.Text;
         }
 
         //Assert.That(neweditcode.Text == "ABC", "Time record has not been edited");

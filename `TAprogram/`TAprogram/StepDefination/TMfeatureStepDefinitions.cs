@@ -55,22 +55,24 @@ namespace _TAprogram.StepDefination
 
         //Edit records
 
-        [When(@"I update the '([^']*)'on an existing Time record")]
-        public void WhenIUpdateTheOnAnExistingTimeRecord(string code)
+        [When(@"I update the '([^']*)' and '([^']*)'on an existing Time record")]
+        public void WhenIUpdateTheOnAnExistingTimeRecord(string code, string description)
         {
             TMPage tMPageObj = new TMPage();
-            tMPageObj.EditTimeRecord(driver, code);
+            tMPageObj.EditTimeRecord(driver, code, description);
         }
 
-        [Then(@"the record should have the updated '([^']*)'")]
-        public void ThenTheRecordShouldHaveTheUpdated(string code)
+        [Then(@"the record should have the updated '([^']*)' and '([^']*)'")]
+        public void ThenTheRecordShouldHaveTheUpdated(string code , string description)
 
         {
             TMPage tMPageObj = new TMPage();
 
             string editCode = tMPageObj.GetCode(driver);
+            string editdescription = tMPageObj.GetDescription(driver);
 
             Assert.That(editCode == code, "Actual and Expected Code do not match");
+            Assert.That(editdescription == description, "Actual and Expected description do not match");
 
 
         }

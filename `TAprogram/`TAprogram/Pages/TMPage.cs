@@ -88,7 +88,7 @@ namespace TAprogram.Pages
             IWebElement newPrice = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[4]"));
             return newPrice.Text;
         }
-        public void EditTimeRecord(IWebDriver driver, string code, string description)
+        public void EditTimeRecord(IWebDriver driver, string code, string description, string price)
         {
             Thread.Sleep(4000);
 
@@ -110,6 +110,24 @@ namespace TAprogram.Pages
             IWebElement editDescriptionTextbox = driver.FindElement(By.Id("Description"));
             editDescriptionTextbox.Clear();
             editDescriptionTextbox.SendKeys(description);
+
+
+            //IWebElement editpriceOverLap = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[4]/div/span[1]/span/input[1]"));
+            //editpriceOverLap.Click();
+            //Thread.Sleep(2000);
+            //IWebElement editPriceTextbox = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[4]/div/span[1]/span/input[2]"));
+            //editPriceTextbox.Clear();
+            //editPriceTextbox.SendKeys(price);
+
+            IWebElement priceOverLap = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[4]/div/span[1]/span/input[1]"));
+            priceOverLap.Click();
+            //enter value on priceTextbox
+            IWebElement priceTextbox = driver.FindElement(By.Id("Price"));
+            priceTextbox.Clear();
+
+            priceOverLap.Click();
+            priceTextbox.SendKeys(price);
+
 
             IWebElement editSaveButton = driver.FindElement(By.Id("SaveButton"));
             Thread.Sleep(1000);
@@ -134,6 +152,11 @@ namespace TAprogram.Pages
         {
             IWebElement editDescription = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[3]"));
             return editDescription.Text;
+        }
+        public string GetEditPrice(IWebDriver driver)
+        {
+            IWebElement editPrice = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[4]"));
+            return editPrice.Text;
         }
 
         //Assert.That(neweditcode.Text == "ABC", "Time record has not been edited");

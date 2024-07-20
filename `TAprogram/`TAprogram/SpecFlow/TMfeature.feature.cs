@@ -21,12 +21,20 @@ namespace _TAprogram.SpecFlow
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("TMfeature")]
+    [NUnit.Framework.CategoryAttribute("smoke")]
+    [NUnit.Framework.CategoryAttribute("bvt")]
+    [NUnit.Framework.CategoryAttribute("regression")]
+    [NUnit.Framework.CategoryAttribute("IC1238")]
     public partial class TMfeatureFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private static string[] featureTags = ((string[])(null));
+        private static string[] featureTags = new string[] {
+                "smoke",
+                "bvt",
+                "regression",
+                "IC1238"};
         
 #line 1 "TMfeature.feature"
 #line hidden
@@ -74,6 +82,18 @@ namespace _TAprogram.SpecFlow
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 8
+#line hidden
+#line 9
+testRunner.Given("I logged into TurnUp portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 10
+ testRunner.When("I navigate to Time and Material page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("1 create time record with valid data")]
         [NUnit.Framework.CategoryAttribute("regression")]
@@ -83,7 +103,7 @@ namespace _TAprogram.SpecFlow
                     "regression"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1 create time record with valid data", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 8
+#line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -93,16 +113,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 9
- testRunner.Given("I logged into TurnUp portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+this.FeatureBackground();
 #line hidden
-#line 10
- testRunner.When("I navigate to Time and Material page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 14
+ testRunner.When("I create a time record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 11
- testRunner.And("I create a time record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 12
+#line 15
  testRunner.Then("the record should be created successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -111,17 +128,25 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("2 edit existing time record with valid data")]
-        [NUnit.Framework.TestCaseAttribute("Industry Connect", "This is Industry Connect", null)]
-        [NUnit.Framework.TestCaseAttribute("TA Job Ready", "This is TA Job Ready", null)]
-        [NUnit.Framework.TestCaseAttribute("EditedRecord", "This is EditedRecord", null)]
-        public void _2EditExistingTimeRecordWithValidData(string code, string description, string[] exampleTags)
+        [NUnit.Framework.CategoryAttribute("bvt")]
+        [NUnit.Framework.TestCaseAttribute("Industry Connect", "This is Industry Connect", "$1.00", null)]
+        [NUnit.Framework.TestCaseAttribute("TA Job Ready", "This is TA Job Ready", "$2.00", null)]
+        [NUnit.Framework.TestCaseAttribute("EditedRecord", "This is EditedRecord", "$3.00", null)]
+        public void _2EditExistingTimeRecordWithValidData(string code, string description, string price, string[] exampleTags)
         {
-            string[] tagsOfScenario = exampleTags;
+            string[] @__tags = new string[] {
+                    "bvt"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Code", code);
             argumentsOfScenario.Add("Description", description);
+            argumentsOfScenario.Add("Price", price);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2 edit existing time record with valid data", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 14
+#line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -131,17 +156,50 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 15
- testRunner.Given("I logged into TurnUp portal successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+this.FeatureBackground();
 #line hidden
-#line 16
- testRunner.When("I navigate to Time and Material page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
+ testRunner.When(string.Format("I update the \'{0}\' , \'{1}\' and \'{2}\' on an existing Time record", code, description, price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 17
- testRunner.When(string.Format("I update the \'{0}\' and \'{1}\'on an existing Time record", code, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 20
+ testRunner.Then(string.Format("the record should have the updated \'{0}\' , \'{1}\' and \'{2}\' successfully", code, description, price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 18
- testRunner.Then(string.Format("the record should have the updated \'{0}\' and \'{1}\'", code, description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("delete existing time record")]
+        [NUnit.Framework.CategoryAttribute("smoke")]
+        [NUnit.Framework.CategoryAttribute("bvt")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public void DeleteExistingTimeRecord()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "smoke",
+                    "bvt",
+                    "regression"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("delete existing time record", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 29
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 8
+this.FeatureBackground();
+#line hidden
+#line 30
+ testRunner.When("I delete an existing record", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 31
+ testRunner.Then("the record should not be present", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -55,29 +55,48 @@ namespace _TAprogram.StepDefination
 
         //Edit records
 
-        [When(@"I update the '([^']*)' and '([^']*)'on an existing Time record")]
-        public void WhenIUpdateTheOnAnExistingTimeRecord(string code, string description)
+        [When(@"I update the '([^']*)' , '([^']*)' and '([^']*)' on an existing Time record")]
+        public void WhenIUpdateTheOnAnExistingTimeRecord(string code, string description, string price)
         {
             TMPage tMPageObj = new TMPage();
-            tMPageObj.EditTimeRecord(driver, code, description);
+            tMPageObj.EditTimeRecord(driver, code, description, price);
         }
 
-        [Then(@"the record should have the updated '([^']*)' and '([^']*)'")]
-        public void ThenTheRecordShouldHaveTheUpdated(string code , string description)
+        [Then(@"the record should have the updated '([^']*)' , '([^']*)' and '([^']*)' successfully")]
+        public void ThenTheRecordShouldHaveTheUpdated(string code , string description, string price)
 
         {
             TMPage tMPageObj = new TMPage();
 
-            string editCode = tMPageObj.GetCode(driver);
-            string editdescription = tMPageObj.GetDescription(driver);
+            string editCode = tMPageObj.GetEditCode(driver);
+            string editdescription = tMPageObj.GetEditDescription(driver);
+            string editprice = tMPageObj.GetEditPrice(driver);
 
             Assert.That(editCode == code, "Actual and Expected Code do not match");
             Assert.That(editdescription == description, "Actual and Expected description do not match");
+            Assert.That(editprice == price, "Actual and Expected Code do not match");
 
 
         }
+        // Delete records
+        [When(@"I delete an existing record")]
+        public void WhenIDeleteAnExistingRecord()
+        {
+            TMPage tmPageDeleteobj = new TMPage();
+            TMPage.DeleteTimeRecord(driver);
+        }
 
+        [Then(@"the record should not be present")]
+        public void ThenTheRecordShouldNotBePresent()
+        {
+            
+        }
 
+        [AfterScenario]
+        public void CloseTestRUn()
+        {
+            driver.Quit();
+        }
     }
 }
 

@@ -95,7 +95,7 @@ namespace _TAprogram.StepDefination
         [AfterScenario]
         public void CloseTestRUn()
         {
-            driver.Quit();
+            driver.Close();
         }
     }
 }
